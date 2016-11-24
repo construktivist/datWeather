@@ -1,2 +1,189 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 header-bg">
+			<h1>datWeather</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="row">
+				<div class="col-xs-12">		
+					<!--<h2>{{place}}</h2>-->
+					<h2 class="text-center">{{City}}</h2>
+				</div>		
+			</div>
+			<div class="row">
+				<div class="col-xs-3">
+					<div class="row">
+						<div class="col-xs-12">		
+							<!--<h2>{{place}}</h2>-->
+							<h3>Search</h3>
+							<form>
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="input-group">
+		 									<input type="text" class="form-control" placeholder="City" aria-describedby="basic-addon1">
+		 								</div>
+		 							</div>	
+ 								</div>
+ 								<div class="row">
+	 								<div class="col-xs-12">
+			 							<div class="input-group">	
+			 								<div class="input-group-btn">
+			        						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">State <span class="caret"></span></button>
+			        							<ul class="dropdown-menu">
+											         <li><a href="#">Texas</a></li>
+											         <li><a href="#">Washington</a></li>
+											         <li><a href="#">California</a></li>
+			        							</ul>
+			      							</div>
+										</div>
+									</div>	
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="input-group">
+		 									<input type="text" class="form-control" placeholder="Zip Code" aria-describedby="basic-addon1">
+		 								</div>
+		 							</div>
+		 						</div>	
+		 						<div class="row">
+		 							<div class="col-xs-12">	
+			 								<div class="input-group">	
+			 									<div class="input-group-btn">
+			        							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Country <span class="caret"></span></button>
+			        								<ul class="dropdown-menu">
+											          <li><a href="#">USA</a></li>
+											          <li><a href="#">United Kingdom</a></li>
+											          <li><a href="#">Germany</a></li>
+			        								</ul>
+			      								</div>
+											</div>
+									</div>		
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="input-group">	
+		 									<div class="input-group-btn">
+		        							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Region <span class="caret"></span></button>
+		        								<ul class="dropdown-menu">
+										          <li><a href="#">North America</a></li>
+										          <li><a href="#">Central America</a></li>
+										          <li><a href="#">South America</a></li>
+		        								</ul>
+		      								</div>
+										</div>
+									</div>	
+								</div>		
+							</form>
+						</div>
+					</div>		
+				</div>
+				<div class="col-xs-9">
+					<div class="row">
+						<div class="col-xs-3">		
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Spring</h3>
+							  	</div>
+							  	<div class="panel-body">
+							    	<div class="well well-lg">
+							    		{{springTemperature}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{springPercipitation}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{springHumidity}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{springWind}}
+							    	</div>
+							   		<div class="text-center">
+							    		<a href="#">See More</a>
+							    	</div>
+							  	</div>
+							</div>
+						</div>
+						<div class="col-xs-3">		
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Summer</h3>
+							  	</div>
+							  	<div class="panel-body">
+							    	<div class="well well-lg">
+							    		{{summerTemperature}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{summerPercipitation}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{summerHumidity}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{summerWind}}
+							    	</div>
+							    	<div class="text-center">
+							    		<a href="#">See More</a>
+							    	</div>
+							  	</div>
+							</div>
+						</div>
+						<div class="col-xs-3">		
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Fall</h3>
+							  	</div>
+							  	<div class="panel-body">
+							    	<div class="well well-lg">
+							    		{{fallTemperature}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{fallPercipitation}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{fallHumidity}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{fallWind}}
+							    	</div>
+							    	<div class="text-center">
+							    		<a href="#">See More</a>
+							    	</div>
+							  	</div>
+							</div>
+						</div>
+						<div class="col-xs-3">		
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Winter</h3>
+							  	</div>
+							  	<div class="panel-body">
+							    	<div class="well well-lg">
+							    		{{winterTemperature}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{winterPercipitation}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{winterHumidity}}
+							    	</div>
+							    	<div class="well well-lg">
+							    		{{winterWind}}
+							    	</div>
+							   		<div class="text-center">
+							    		<a href="#">See More</a>
+							    	</div>
+							  	</div>
+							</div>
+						</div>
+					</div>		
+				</div>				
+			</div>			
+	</div>	
+</div>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
