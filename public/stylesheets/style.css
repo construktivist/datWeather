@@ -26,5 +26,20 @@ h1{
 	display: block;
 }
 
+.panel-default .panel-heading{
+	background: rgba(112, 183, 55, 1) 
+}
+
+.panel-body{
+	background: rgba(112, 183, 55, .5) 
+}
+
+.panel-title{
+	color: white;
+}
+
+.well{
+	background-color: white;
+}
 
 
