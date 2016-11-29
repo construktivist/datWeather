@@ -14,13 +14,17 @@ h1{
 
 .container{
 	width: 1450px;
-	background-color: #f0f0f0;
 }
 
 .header-bg{
 	background-image: url("http://cdn.pcwallart.com/images/green-background-design-wallpaper-1.jpg");
 }
 
+
 .input-group{
 	margin-top: 20px;
+	display: block;
 }
+
+
+

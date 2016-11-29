@@ -22,59 +22,40 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-		 									<input type="text" class="form-control" placeholder="City" aria-describedby="basic-addon1">
+		 									<input type="text" id="input-city" class="form-control" placeholder="City" aria-describedby="basic-addon1">
 		 								</div>
 		 							</div>	
  								</div>
  								<div class="row">
 	 								<div class="col-xs-12">
 			 							<div class="input-group">	
-			 								<div class="input-group-btn">
-			        						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">State <span class="caret"></span></button>
-			        							<ul class="dropdown-menu">
-											         <li><a href="#">Texas</a></li>
-											         <li><a href="#">Washington</a></li>
-											         <li><a href="#">California</a></li>
-			        							</ul>
-			      							</div>
+			        						<select id="input-state" class="form-control input-medium bfh-states" data-country="US" data-state="TX"></select>
 										</div>
 									</div>	
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-		 									<input type="text" class="form-control" placeholder="Zip Code" aria-describedby="basic-addon1">
+		 									<input id="input-zip" type="text" class="form-control" placeholder="Zip Code" aria-describedby="basic-addon1">
 		 								</div>
 		 							</div>
 		 						</div>	
 		 						<div class="row">
-		 							<div class="col-xs-12">	
-			 								<div class="input-group">	
-			 									<div class="input-group-btn">
-			        							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Country <span class="caret"></span></button>
-			        								<ul class="dropdown-menu">
-											          <li><a href="#">USA</a></li>
-											          <li><a href="#">United Kingdom</a></li>
-											          <li><a href="#">Germany</a></li>
-			        								</ul>
-			      								</div>
-											</div>
+		 							<div class="col-xs-12">
+		 								<div class="input-group">
+											<select id="input-country" class="form-control input-medium bfh-countries" data-country="US"></select>
+										</div>
 									</div>		
 								</div>
 								<div class="row">
-									<div class="col-xs-12">
-										<div class="input-group">	
-		 									<div class="input-group-btn">
-		        							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Region <span class="caret"></span></button>
-		        								<ul class="dropdown-menu">
-										          <li><a href="#">North America</a></li>
-										          <li><a href="#">Central America</a></li>
-										          <li><a href="#">South America</a></li>
-		        								</ul>
-		      								</div>
-										</div>
-									</div>	
-								</div>		
+		 							<div class="col-xs-12">
+		 								<div class="input-group">
+      										<span class="input-group-btn">
+        										<button id="submit" class="btn btn-primary" type="button">Submit</button>
+      										</span>
+    									</div>
+									</div>		
+								</div>				
 							</form>
 						</div>
 					</div>		
@@ -182,8 +163,3 @@
 			</div>			
 	</div>	
 </div>
-<script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
