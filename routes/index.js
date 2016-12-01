@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+// var sequelizeConnection = models.sequelize;
+// sequelizeConnection.sync();
+
 
 /* GET home page. */
 // router.get('/', function(req, res) {
@@ -10,9 +13,7 @@ var models = require('../models');
 //   	springPercipitation: "Wet",
 //   	springHumidity: "10% - 20%",
 //   	springWind: "12 mph",
-/*=============
 
- ==============*/
 
 //   	summerTemperature: "86 - 112",
 //   	summerPercipitation: "Very Dry",
@@ -39,8 +40,11 @@ var models = require('../models');
 
 
 router.get('/austin', function(request, response) {
-	models.Campmabrymin.findAll().then(function(data){
-		console.log(data);
+    console.log("hello");
+    models.Campmabrymin.findAll({
+        attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
+    }).then(function(data){
+        console.log(data);
 	});
 });
 

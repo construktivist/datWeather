@@ -12,7 +12,7 @@
     "brfs": "^1.4.3",
     "browserify-fs": "^1.0.0",
     "cookie-parser": "~1.4.3",
-    "debug": "~2.2.0",
+    "debug": "^2.2.0",
     "express": "~4.14.0",
     "flickrapi": "^0.6.0",
     "hbs": "~4.0.1",
