@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('campmabrymin', {
+  var Campmabry = sequelize.define('Campmabrymin', {
     STATION: {
       type: DataTypes.TEXT,
       allowNull: true
@@ -114,4 +114,5 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     tableName: 'campmabrymin'
   });
+return Campmabry;
 };
