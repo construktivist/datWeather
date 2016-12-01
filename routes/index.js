@@ -40,11 +40,15 @@ var models = require('../models');
 
 
 router.get('/austin', function(request, response) {
-    console.log("hello");
+console.log("help");
     models.Campmabrymin.findAll({
         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
     }).then(function(data){
-        console.log(data);
+        var datajson = json.parse(data);
+        response.render('index', {
+            data: datajson
+        });
+
 	});
 });
 
