@@ -44,9 +44,9 @@ console.log("help");
     models.Campmabrymin.findAll({
         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
     }).then(function(data){
-        var datajson = json.parse(data);
+        var dataJson = json.parse(data);
         response.render('index', {
-            data: datajson
+            data: dataJson
         });
 
 	});
