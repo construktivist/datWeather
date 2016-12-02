@@ -1,5 +1,6 @@
 const base64url = require('base64url');
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 
 var secret = "secret";
 
@@ -10,19 +11,19 @@ module.exports = function(app) {
             if (typeof req.query.email == 'undefined') {
                 res.render('login');
             } else {
-              var header = {
-                  "typ": "JWT",
-                  "alg": "HS256"
-              };
-              var payload = {
-                  "email": req.query.email,
-                  "password": req.query.password,
-              };
-              var user_credentials = base64url(String(header)) + "." + base64url(String(payload));
-              var hash = crypto.createHmac('sha256',secret).update(user_credentials).digest('hex');
-              var jwt = user_credentials + "." + hash;
-              console.log(jwt);
-              res.redirect('/validate/?check=' + jwt);
+                var header = {
+                    "typ": "JWT",
+                    "alg": "HS256"
+                }
+                var payload = {
+                    "email": String(req.query.email),
+                    "password": String(req.query.password),
+                }
+                var token = jwt.sign({
+                    header,
+                    payload
+                }, secret);
+                res.redirect('/validate/?check=' + token);
             }
         }
     });
@@ -53,10 +54,17 @@ module.exports = function(app) {
     });
 
     app.get('/validate', function(req, res) {
-        var credentials = req.params.check;
+        var cipher = req.query.check;
+        console.log(cipher);
+        try {
+            var credentials = jwt.verify(cipher, secret);
+            console.log(credentials);
+        } catch (err) {
+            console.log(err);
+        }
         res.render('home', {
-            email: credentials,
-            password: "hahaha",
+            email: decoded.payload.email,
+            layout: 'dashboard'
         });
     });
 }
