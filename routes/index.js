@@ -6,45 +6,57 @@ var stats = require("stats-lite");
 // var sequelizeConnection = models.sequelize;
 // sequelizeConnection.sync();
 
-//
-// /* GET home page. */
-// router.get('/', function(req, res) {
-//   res.render('index', {
-//   	City: 'New York' ,
-//   	springTemperature: "60 - 82",
-//   	springPercipitation: "Wet",
-//   	springHumidity: "10% - 20%",
-//   	springWind: "12 mph",
-//
-//
-//   	summerTemperature: "86 - 103",
-//   	summerPercipitation: "Very Dry",
-//   	summerHumidity: "0% - 3%",
-//   	summerWind: "14 mph",
-//
-//   	fallTemperature: "60 - 78",
-//   	fallPercipitation: "Very Wet",
-//   	fallHumidity: "1% - 2%",
-//   	fallWind: "18 mph",
-//
-//   	winterTemperature: "13 - 67",
-//   	winterPercipitation: "Dry",
-//   	winterHumidity: "0% - 2%",
-//   	winterWind: "8 mph"
-//
-//     });
-// });
+
+
+/* GET home page. */
+router.get('/', function(req, res) {
+  res.render('index', {
+  	City: 'New York' ,
+  	springTemperature: "60 - 82",
+  	springPercipitation: "Wet",
+  	springHumidity: "10% - 20%",
+  	springWind: "12 mph",
+
+
+  	summerTemperature: "86 - 103",
+  	summerPercipitation: "Very Dry",
+  	summerHumidity: "0% - 3%",
+  	summerWind: "14 mph",
+
+  	fallTemperature: "60 - 78",
+  	fallPercipitation: "Very Wet",
+  	fallHumidity: "1% - 2%",
+  	fallWind: "18 mph",
+
+  	winterTemperature: "13 - 67",
+  	winterPercipitation: "Dry",
+  	winterHumidity: "0% - 2%",
+  	winterWind: "8 mph"
+
+    });
+});
 
 //================
 //Get all the data
 //================
-router.get('/austin', function(request, response) {
+router.post("/city", function(request, response){
+
+    var cityName = request.body.city;
+    console.log(cityName);
+    var condition = cityName.toUpperCase();
+
+    console.log("condition:", condition);
+
+
     //Spring
     models.spring.findAll({
         attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip', 'HOURLYWindSpeed']
     }).then(function (data) {
         // console.log(response.json(data));
         // return response.json(data);
+
+
+
 
         var springtempArray = [];
         var springprecipArray = [];
@@ -61,14 +73,10 @@ router.get('/austin', function(request, response) {
         //
         //Temps
         //
-        console.log("===spring====");
-        console.log("Tespringmps");
-        console.log("===spring====");
-
-        console.log("mean: %s", stats.mean(springtempArray));
-        console.log("median: %s", stats.median(springtempArray));
-        console.log("mode: %s", stats.mode(springtempArray));
-        console.log("standard deviation: %s", stats.stdev(springtempArray));
+        var springTempMean = stats.mean(springtempArray);
+        var springTempMedian = stats.median(springtempArray);
+        var springTempMode = stats.mode(springtempArray);
+        var springTempStdev = stats.stdev(springtempArray);
 
         //
         //Rains
@@ -80,6 +88,7 @@ router.get('/austin', function(request, response) {
         console.log("median: %s", stats.median(springprecipArray));
         console.log("mode: %s", stats.mode(springprecipArray));
         console.log("standard deviation: %s", stats.stdev(springprecipArray));
+
 
         //
         //Winds
@@ -253,6 +262,33 @@ router.get('/austin', function(request, response) {
             console.log("mode: %s", stats.mode(windArray));
             console.log("standard deviation: %s", stats.stdev(windArray));
         })
+    }).then(function (data){
+        response.render("index", {
+            City: condition,
+            springTemperature: "60 - 82",
+            springPercipitation: "Wet",
+            springHumidity: "10% - 20%",
+            springWind: "12 mph",
+
+
+            summerTemperature: "86 - 103",
+            summerPercipitation: "Very Dry",
+            summerHumidity: "0% - 3%",
+            summerWind: "14 mph",
+
+            fallTemperature: "60 - 78",
+            fallPercipitation: "Very Wet",
+            fallHumidity: "1% - 2%",
+            fallWind: "18 mph",
+
+            winterTemperature: "13 - 67",
+            winterPercipitation: "Dry",
+            winterHumidity: "0% - 2%",
+            winterWind: "8 mph"
+
+        });
+
+        })
     })
 });    //END OF ROUTE
 
@@ -376,6 +412,59 @@ router.get('/austin', function(request, response) {
 //         console.log("standard deviation: %s", stats.stdev(windArray));
 //     })
 // });
+
+// router.post("/city", function(request, response){
+// 	var cityName = request.body.city;
+// 	console.log(cityName);
+// 	var condition = cityName.toUpperCase();
+//
+// 	console.log("condition:", condition);
+//
+// 	response.render("index", {
+// 		City: condition,
+// 	})
+// })
+
+
+
+
+
+
+
+// router.get('/:austin', function(request, response) {
+// console.log("help");
+//     models.Campmabrymin.findAll({
+//         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
+//     }).then(function(data){
+//         // var datajson = json.parse(data);
+//         // response.render('index', {
+//         //     data: datajson
+//         // });
+//         var dataJson = json.parse(data);
+//         response.render('index', {
+//             data: dataJson
+//         });
+
+// 	});
+// });
+
+// router.get('/austin', function(request, response) {
+// console.log("help");
+//     models.Datweather.findAll({
+//         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
+//     }).then(function(data){
+//         // var datajson = json.parse(data);
+//         // response.render('index', {
+//         //     data: datajson
+//         // });
+//         var dataJson = json.parse(data);
+//         response.render('index', {
+//             data: dataJson
+//         });
+//
+// 	});
+// });
+
 
 //
 // //
