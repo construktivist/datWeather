@@ -1,7 +1,7 @@
     /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  var austin = sequelize.define('Datweatherdb', {
+  var austin = sequelize.define('Datweather', {
 
     DATE: {
       type: DataTypes.DATE,
@@ -23,5 +23,5 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     tableName: 'spring'
   });
-return Datweatherdb;
+return Datweather;
 };
