@@ -12,6 +12,7 @@ h1{
 	font-weight: bold;
 }
 
+<<<<<<< HEAD
 
 /* Credit to bootsnipp.com for the css for the color graph */
 .colorgraph {
@@ -23,6 +24,14 @@ h1{
   background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+=======
+h2{
+	color: white;
+}
+
+h3{
+	color: white;
+>>>>>>> 73fa16685598c9e1808a3c414a4dcc6a0f494178
 }
 
 .container {
@@ -55,4 +64,10 @@ h1{
 
 .well{
 	background-color: white;
+}
+
+#chartdiv {
+	width       : 100%;
+	height      : 500px;
+	font-size   : 11px;
 }
