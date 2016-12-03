@@ -43,6 +43,7 @@ router.get('/', function(req, res) {
 // 	})
 
 
+<<<<<<< HEAD
 router.post("/city", function(request, response){
 	var cityName = request.body.city;
 	console.log(cityName);
@@ -77,6 +78,24 @@ router.post("/city", function(request, response){
 
 // 	});
 // });
+=======
+router.get('/austin', function(request, response) {
+console.log("help");
+    models.Datweather.findAll({
+        attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
+    }).then(function(data){
+        // var datajson = json.parse(data);
+        // response.render('index', {
+        //     data: datajson
+        // });
+        var dataJson = json.parse(data);
+        response.render('index', {
+            data: dataJson
+        });
+
+	});
+});
+>>>>>>> 0ce3676ca4650a10b008a2f41994d8072bdb2a8c
 
 
 
