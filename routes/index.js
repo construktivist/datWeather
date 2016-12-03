@@ -32,64 +32,56 @@ router.get('/', function(req, res) {
   	winterHumidity: "0% - 2%",
   	winterWind: "8 mph"
 
+    });
 });
-});
-//
-// router.get('/', function(request, response) {
-// 	response.render('splash', {
-//
-// 	})
 
-
-// router.get('/austin', function(request, response) {
-// console.log("help");
-//     models.Datweather.findAll({
-//         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
-//     }).then(function(data){
-//         // var datajson = json.parse(data);
-//         // response.render('index', {
-//         //     data: datajson
-//         // });
-//         var dataJson = json.parse(data);
-//         response.render('index', {
-//             data: dataJson
-//         });
-//
-// 	});
-// });
-//
 
 router.get('/austin/spring', function(request, response) {
     models.spring.findAll({
-        attributes: ['HOURLYDRYBULBTEMPF']
-    }).then(function(data){
+        attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
+    }).then(function(data) {
         // console.log(response.json(data));
         // return response.json(data);
-        //    calculate the standard deviation
 
         var tempArray = [];
+        var precipArray = [];
+        var windArray = [];
+
+
+        //Loop over the sql array
         for (var i = 0; i < data.length; i++) {
             tempArray.push(data[i].HOURLYDRYBULBTEMPF);
         }
 
+        //
+        //Temps
+        //
         console.log("sum: %s", stats.sum(tempArray));
         console.log("mean: %s", stats.mean(tempArray));
         console.log("median: %s", stats.median(tempArray));
         console.log("mode: %s", stats.mode(tempArray));
         console.log("standard deviation: %s", stats.stdev(tempArray));
 
-    });
+        //
+        //Rains
+        //
+        console.log("sum: %s", stats.sum(precipArray));
+        console.log("mean: %s", stats.mean(precipArray));
+        console.log("median: %s", stats.median(precipArray));
+        console.log("mode: %s", stats.mode(precipArray));
+        console.log("standard deviation: %s", stats.stdev(precipArray));
 
-
-
-
-
-
-
-
-
+        //
+        //Winds
+        //
+        console.log("sum: %s", stats.sum(windArray));
+        console.log("mean: %s", stats.mean(windArray));
+        console.log("median: %s", stats.median(windArray));
+        console.log("mode: %s", stats.mode(windArray));
+        console.log("standard deviation: %s", stats.stdev(windArray));
+    })
 });
 
+
+
 module.exports = router;
-
-
