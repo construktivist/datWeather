@@ -177,36 +177,26 @@ router.post("/city", function(request, response){
             //
             //Temps
             //
-            console.log("=======");
-            console.log("Temps");
-            console.log("=======");
-
-            console.log("mean: %s", stats.mean(tempArray));
-            console.log("median: %s", stats.median(tempArray));
-            console.log("mode: %s", stats.mode(tempArray));
-            console.log("standard deviation: %s", stats.stdev(tempArray));
+	        fallStats.fallTempMean = stats.mean(fallTempArray);
+	        fallStats.fallTempMedian = stats.median(fallTempArray);
+	        fallStats.fallTempMode = stats.mode(fallTempArray);
+	        fallStats.fallTempStdev = stats.stdev(fallTempArray);
 
             //
             //Rains
             //
-            console.log("=======");
-            console.log("Rains");
-            console.log("=======");
-            console.log("mean: %s", stats.mean(precipArray));
-            console.log("median: %s", stats.median(precipArray));
-            console.log("mode: %s", stats.mode(precipArray));
-            console.log("standard deviation: %s", stats.stdev(precipArray));
+	        fallStats.fallPercipMean = stats.mean(fallPercipArray);
+	        fallStats.fallPercipMedian = stats.median(fallPercipArray);
+	        fallStats.fallPercipMode = stats.mode(fallPercipArray);
+	        fallStats.fallPercipStdev = stats.stdev(fallPercipArray);
 
             //
             //Winds
             //
-            console.log("=======");
-            console.log("Winds");
-            console.log("=======");
-            console.log("mean: %s", stats.mean(windArray));
-            console.log("median: %s", stats.median(windArray));
-            console.log("mode: %s", stats.mode(windArray));
-            console.log("standard deviation: %s", stats.stdev(windArray));
+	        fallStats.fallWindMean = stats.mean(fallWindArray);
+	        fallStats.fallWindMedian = stats.median(fallWindArray);
+	        fallStats.fallWindMode = stats.mode(fallWindArray);
+	        fallStats.fallWindStdev = stats.stdev(fallWindArray);
         })
     }).then(function(data) {
         //    Winter
@@ -231,36 +221,26 @@ router.post("/city", function(request, response){
             //
             //Temps
             //
-            console.log("=======");
-            console.log("Temps");
-            console.log("=======");
-
-            console.log("mean: %s", stats.mean(tempArray));
-            console.log("median: %s", stats.median(tempArray));
-            console.log("mode: %s", stats.mode(tempArray));
-            console.log("standard deviation: %s", stats.stdev(tempArray));
+	        winterStats.winterTempMean = stats.mean(winterTempArray);
+	        winterStats.winterTempMedian = stats.median(winterTempArray);
+	        winterStats.winterTempMode = stats.mode(winterTempArray);
+	        winterStats.winterTempStdev = stats.stdev(winterTempArray);
 
             //
             //Rains
             //
-            console.log("=======");
-            console.log("Rains");
-            console.log("=======");
-            console.log("mean: %s", stats.mean(precipArray));
-            console.log("median: %s", stats.median(precipArray));
-            console.log("mode: %s", stats.mode(precipArray));
-            console.log("standard deviation: %s", stats.stdev(precipArray));
+	        winterStats.winterPercipMean = stats.mean(winterPercipArray);
+	        winterStats.winterPercipMedian = stats.median(winterPercipArray);
+	        winterStats.winterPercipMode = stats.mode(winterPercipArray);
+	        winterStats.winterPercipStdev = stats.stdev(winterPercipArray);
 
             //
             //Winds
             //
-            console.log("=======");
-            console.log("Winds");
-            console.log("=======");
-            console.log("mean: %s", stats.mean(windArray));
-            console.log("median: %s", stats.median(windArray));
-            console.log("mode: %s", stats.mode(windArray));
-            console.log("standard deviation: %s", stats.stdev(windArray));
+	        winterStats.winterWindMean = stats.mean(winterWindArray);
+	        winterStats.winterWindMedian = stats.median(winterWindArray);
+	        winterStats.winterWindMode = stats.mode(winterWindArray);
+	        winterStats.winterWindStdev = stats.stdev(winterWindArray);
         })
     }).then(function (springStats, summerStats, fallStats, winterStats){
         response.render("index", {
