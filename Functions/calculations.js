@@ -4,26 +4,7 @@ var average = function (data) {
     $.each(obj, function(key, value) {
         console.log(key, value);
     });
-}
-
-
-
-    module.exports = calculations;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}module.exports = calculations;
 
 
 
