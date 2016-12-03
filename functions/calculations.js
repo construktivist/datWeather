@@ -7,8 +7,6 @@ var average = function (data) {
 }module.exports = calculations;
 
 
-
-
 // for (var key in tempArray) {
 //     if (tempArray.hasOwnProperty(key)){
 //         console.log(key + " ->")
