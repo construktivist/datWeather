@@ -1,7 +1,7 @@
-/* jshint indent: 2 */
+    /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  var austin = sequelize.define('datweatherdb', {
+  var austin = sequelize.define('Datweatherdb', {
 
     DATE: {
       type: DataTypes.DATE,
@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    tableName: 'datweatherdb'
+    tableName: 'spring'
   });
-return Campmabry;
+return Datweatherdb;
 };
