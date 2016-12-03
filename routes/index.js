@@ -39,9 +39,28 @@ router.get('/', function(req, res) {
 // 	})
 
 
-router.get('/austin', function(request, response) {
-console.log("help");
-    models.Datweather.findAll({
+// router.get('/austin', function(request, response) {
+// console.log("help");
+//     models.Datweather.findAll({
+//         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
+//     }).then(function(data){
+//         // var datajson = json.parse(data);
+//         // response.render('index', {
+//         //     data: datajson
+//         // });
+//         var dataJson = json.parse(data);
+//         response.render('index', {
+//             data: dataJson
+//         });
+//
+// 	});
+// });
+//
+
+
+router.get('/austin/spring', function(request, response) {
+    console.log("help");
+    models.spring.findAll({
         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
     }).then(function(data){
         // var datajson = json.parse(data);
@@ -53,9 +72,7 @@ console.log("help");
             data: dataJson
         });
 
-	});
+    });
 });
-
-
 
 module.exports = router;
