@@ -36,6 +36,11 @@ router.get('/', function(req, res) {
     });
 });
 
+var springStats = {};
+var summerStats = {};
+var fallStats = {};
+var winterStats = {};
+
 //================
 //Get all the data
 //================
@@ -56,12 +61,9 @@ router.post("/city", function(request, response){
         // return response.json(data);
 
 
-
-
         var springtempArray = [];
         var springprecipArray = [];
         var springwindArray = [];
-
 
         //Loop over the sql array
         for (var i = 0; i < data.length; i++) {
@@ -73,17 +75,17 @@ router.post("/city", function(request, response){
         //
         //Temps
         //
-        var springTempMean = stats.mean(springtempArray);
-        var springTempMedian = stats.median(springtempArray);
-        var springTempMode = stats.mode(springtempArray);
-        var springTempStdev = stats.stdev(springtempArray);
+
+
+        springStats.springTempMean = stats.mean(springtempArray);
+        springStats.springTempMedian = stats.median(springtempArray);
+        springStats.springTempMode = stats.mode(springtempArray);
+        springStats.springTempStdev = stats.stdev(springtempArray);
 
         //
         //Rains
         //
-        console.log("====spring===");
-        console.log("Raispringns");
-        console.log("====spring===");
+
         console.log("mean: %s", stats.mean(springprecipArray));
         console.log("median: %s", stats.median(springprecipArray));
         console.log("mode: %s", stats.mode(springprecipArray));
@@ -93,9 +95,7 @@ router.post("/city", function(request, response){
         //
         //Winds
         //
-        console.log("===spring====");
-        console.log("Windsprings");
-        console.log("===spring====");
+
         console.log("mean: %s", stats.mean(springwindArray));
         console.log("median: %s", stats.median(springwindArray));
         console.log("mode: %s", stats.mode(springwindArray));
@@ -262,7 +262,7 @@ router.post("/city", function(request, response){
             console.log("mode: %s", stats.mode(windArray));
             console.log("standard deviation: %s", stats.stdev(windArray));
         })
-    }).then(function (data){
+    }).then(function (springStats, summerStats, fallStats, winterStats){
         response.render("index", {
             City: condition,
             springTemperature: "60 - 82",
