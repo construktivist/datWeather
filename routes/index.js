@@ -44,7 +44,7 @@ var winterStats = {};
 //================
 //Get all the data
 //================
-router.post("/city", function(request, response){
+router.post("/city", function(request, response) {
 
     var cityName = request.body.city;
     console.log(cityName);
@@ -113,71 +113,67 @@ router.post("/city", function(request, response){
         springStats.springWindStdev = stats.stdev(springWindArray);
 
 
-
-
-
-
     }).then(function (data) {
-            //Summer
-            models.summer.findAll({
-                attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip', 'HOURLYWindSpeed']
-            }).then(function (data) {
-                // console.log(response.json(data));
-                // return response.json(data);
+        //Summer
+        models.summer.findAll({
+            attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip', 'HOURLYWindSpeed']
+        }).then(function (data) {
+            // console.log(response.json(data));
+            // return response.json(data);
 
-                var summerTempArray = [];
-                var summerPrecipArray = [];
-                var summerWindArray = [];
-
-
-                //Loop over the sql array
-                for (var i = 0; i < data.length; i++) {
-                    summertempArray.push(data[i].HOURLYDRYBULBTEMPF);
-                    summerprecipArray.push(data[i].HOURLYPrecip);
-                    summerwindArray.push(data[i].HOURLYWindSpeed);
-                }
-
-                //
-                //Temps
-                //
-
-                console.log("mean: %s", stats.mean(summerTempArray));
-                console.log("median: %s", stats.median(summerTempArray));
-                console.log("mode: %s", stats.mode(summerTempArray));
-                console.log("standard deviation: %s", stats.stdev(summerTempArray));
-                springStats.springTempMean = stats.mean(summerTempArray);
-                springStats.springTempMedian = stats.median(summerTempArray);
-                springStats.springTempMode = stats.mode(summerTempArray);
-                springStats.springTempStdev = stats.stdev(summerTempArray);
-
-                //
-                //Rains
-                //
-
-                console.log("mean: %s", stats.mean(summerPrecipArray));
-                console.log("median: %s", stats.median(summerPrecipArray));
-                console.log("mode: %s", stats.mode(summerPrecipArray));
-                console.log("standard deviation: %s", stats.stdev(summerPrecipArray));
-                springStats.springRainMean = stats.mean(summerPrecipArray);
-                springStats.springRainMedian = stats.median(summerPrecipArray);
-                springStats.springRainMode = stats.mode(summerPrecipArray);
-                springStats.springRainStdev = stats.stdev(summerPrecipArray);
+            var summerTempArray = [];
+            var summerPrecipArray = [];
+            var summerWindArray = [];
 
 
-                //
-                //Winds
-                //
+            //Loop over the sql array
+            for (var i = 0; i < data.length; i++) {
+                summertempArray.push(data[i].HOURLYDRYBULBTEMPF);
+                summerprecipArray.push(data[i].HOURLYPrecip);
+                summerwindArray.push(data[i].HOURLYWindSpeed);
+            }
 
-                console.log("mean: %s", stats.mean(summerWindArray));
-                console.log("median: %s", stats.median(summerWindArray));
-                console.log("mode: %s", stats.mode(summerWindArray));
-                console.log("standard deviation: %s", stats.stdev(summerWindArray));
-                springStats.springWindMean = stats.mean(summerWindArray);
-                springStats.springWindMedian = stats.median(summerWindArray);
-                springStats.springWindMode = stats.mode(summerWindArray);
-                springStats.springWindStdev = stats.stdev(summerWindArray);
-            })
-        }).then(function(data) {
+            //
+            //Temps
+            //
+
+            console.log("mean: %s", stats.mean(summerTempArray));
+            console.log("median: %s", stats.median(summerTempArray));
+            console.log("mode: %s", stats.mode(summerTempArray));
+            console.log("standard deviation: %s", stats.stdev(summerTempArray));
+            springStats.springTempMean = stats.mean(summerTempArray);
+            springStats.springTempMedian = stats.median(summerTempArray);
+            springStats.springTempMode = stats.mode(summerTempArray);
+            springStats.springTempStdev = stats.stdev(summerTempArray);
+
+            //
+            //Rains
+            //
+
+            console.log("mean: %s", stats.mean(summerPrecipArray));
+            console.log("median: %s", stats.median(summerPrecipArray));
+            console.log("mode: %s", stats.mode(summerPrecipArray));
+            console.log("standard deviation: %s", stats.stdev(summerPrecipArray));
+            springStats.springRainMean = stats.mean(summerPrecipArray);
+            springStats.springRainMedian = stats.median(summerPrecipArray);
+            springStats.springRainMode = stats.mode(summerPrecipArray);
+            springStats.springRainStdev = stats.stdev(summerPrecipArray);
+
+
+            //
+            //Winds
+            //
+
+            console.log("mean: %s", stats.mean(summerWindArray));
+            console.log("median: %s", stats.median(summerWindArray));
+            console.log("mode: %s", stats.mode(summerWindArray));
+            console.log("standard deviation: %s", stats.stdev(summerWindArray));
+            springStats.springWindMean = stats.mean(summerWindArray);
+            springStats.springWindMedian = stats.median(summerWindArray);
+            springStats.springWindMode = stats.mode(summerWindArray);
+            springStats.springWindStdev = stats.stdev(summerWindArray);
+        })
+    }).then(function (data) {
         //Fall
         models.fall.findAll({
             attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip', 'HOURLYWindSpeed']
@@ -200,28 +196,28 @@ router.post("/city", function(request, response){
             //
             //Temps
             //
-	        fallStats.fallTempMean = stats.mean(fallTempArray);
-	        fallStats.fallTempMedian = stats.median(fallTempArray);
-	        fallStats.fallTempMode = stats.mode(fallTempArray);
-	        fallStats.fallTempStdev = stats.stdev(fallTempArray);
+            fallStats.fallTempMean = stats.mean(fallTempArray);
+            fallStats.fallTempMedian = stats.median(fallTempArray);
+            fallStats.fallTempMode = stats.mode(fallTempArray);
+            fallStats.fallTempStdev = stats.stdev(fallTempArray);
 
             //
             //Rains
             //
-	        fallStats.fallPercipMean = stats.mean(fallPercipArray);
-	        fallStats.fallPercipMedian = stats.median(fallPercipArray);
-	        fallStats.fallPercipMode = stats.mode(fallPercipArray);
-	        fallStats.fallPercipStdev = stats.stdev(fallPercipArray);
+            fallStats.fallPercipMean = stats.mean(fallPercipArray);
+            fallStats.fallPercipMedian = stats.median(fallPercipArray);
+            fallStats.fallPercipMode = stats.mode(fallPercipArray);
+            fallStats.fallPercipStdev = stats.stdev(fallPercipArray);
 
             //
             //Winds
             //
-	        fallStats.fallWindMean = stats.mean(fallWindArray);
-	        fallStats.fallWindMedian = stats.median(fallWindArray);
-	        fallStats.fallWindMode = stats.mode(fallWindArray);
-	        fallStats.fallWindStdev = stats.stdev(fallWindArray);
+            fallStats.fallWindMean = stats.mean(fallWindArray);
+            fallStats.fallWindMedian = stats.median(fallWindArray);
+            fallStats.fallWindMode = stats.mode(fallWindArray);
+            fallStats.fallWindStdev = stats.stdev(fallWindArray);
         })
-    }).then(function(data) {
+    }).then(function (data) {
         //    Winter
         models.winter.findAll({
             attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip', 'HOURLYWindSpeed']
@@ -244,28 +240,28 @@ router.post("/city", function(request, response){
             //
             //Temps
             //
-	        winterStats.winterTempMean = stats.mean(winterTempArray);
-	        winterStats.winterTempMedian = stats.median(winterTempArray);
-	        winterStats.winterTempMode = stats.mode(winterTempArray);
-	        winterStats.winterTempStdev = stats.stdev(winterTempArray);
+            winterStats.winterTempMean = stats.mean(winterTempArray);
+            winterStats.winterTempMedian = stats.median(winterTempArray);
+            winterStats.winterTempMode = stats.mode(winterTempArray);
+            winterStats.winterTempStdev = stats.stdev(winterTempArray);
 
             //
             //Rains
             //
-	        winterStats.winterPercipMean = stats.mean(winterPercipArray);
-	        winterStats.winterPercipMedian = stats.median(winterPercipArray);
-	        winterStats.winterPercipMode = stats.mode(winterPercipArray);
-	        winterStats.winterPercipStdev = stats.stdev(winterPercipArray);
+            winterStats.winterPercipMean = stats.mean(winterPercipArray);
+            winterStats.winterPercipMedian = stats.median(winterPercipArray);
+            winterStats.winterPercipMode = stats.mode(winterPercipArray);
+            winterStats.winterPercipStdev = stats.stdev(winterPercipArray);
 
             //
             //Winds
             //
-	        winterStats.winterWindMean = stats.mean(winterWindArray);
-	        winterStats.winterWindMedian = stats.median(winterWindArray);
-	        winterStats.winterWindMode = stats.mode(winterWindArray);
-	        winterStats.winterWindStdev = stats.stdev(winterWindArray);
+            winterStats.winterWindMean = stats.mean(winterWindArray);
+            winterStats.winterWindMedian = stats.median(winterWindArray);
+            winterStats.winterWindMode = stats.mode(winterWindArray);
+            winterStats.winterWindStdev = stats.stdev(winterWindArray);
         })
-    }).then(function (springStats, summerStats, fallStats, winterStats){
+    }).then(function (springStats, summerStats, fallStats, winterStats) {
         response.render("index", {
             City: condition,
             springTemperature: "60 - 82",
@@ -290,361 +286,349 @@ router.post("/city", function(request, response){
             winterWind: "8 mph"
 
         });
-
-        })
     })
+
+
+
+
 });    //END OF ROUTE
 
 
 
 
-//
-// //
-// //Spring Route
-// //
-// router.get('/austin/spring', function(request, response) {
-//     models.spring.findAll({
-//         attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
-//     }).then(function(data) {
-//         // console.log(response.json(data));
-//         // return response.json(data);
-//
-//         var tempArray = [];
-//         var precipArray = [];
-//         var windArray = [];
-//
-//
-//         //Loop over the sql array
-//         for (var i = 0; i < data.length; i++) {
-//             tempArray.push(data[i].HOURLYDRYBULBTEMPF);
-//             precipArray.push(data[i].HOURLYPrecip);
-//             windArray.push(data[i].HOURLYWindSpeed);
-//         }
-//
-//         //
-//         //Temps
-//         //
-//         console.log("=======");
-//         console.log("Temps");
-//         console.log("=======");
-//
-//         console.log("mean: %s", stats.mean(tempArray));
-//         console.log("median: %s", stats.median(tempArray));
-//         console.log("mode: %s", stats.mode(tempArray));
-//         console.log("standard deviation: %s", stats.stdev(tempArray));
-//
-//         //
-//         //Rains
-//         //
-//         console.log("=======");
-//         console.log("Rains");
-//         console.log("=======");
-//         console.log("mean: %s", stats.mean(precipArray));
-//         console.log("median: %s", stats.median(precipArray));
-//         console.log("mode: %s", stats.mode(precipArray));
-//         console.log("standard deviation: %s", stats.stdev(precipArray));
-//
-//         //
-//         //Winds
-//         //
-//         console.log("=======");
-//         console.log("Winds");
-//         console.log("=======");
-//         console.log("mean: %s", stats.mean(windArray));
-//         console.log("median: %s", stats.median(windArray));
-//         console.log("mode: %s", stats.mode(windArray));
-//         console.log("standard deviation: %s", stats.stdev(windArray));
-//     })
-// });
 
 //
-// //
-// //summer Route
-// //
-// router.get('/austin/summer', function(request, response) {
-//     models.summer.findAll({
-//         attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
-//     }).then(function(data) {
-//         // console.log(response.json(data));
-//         // return response.json(data);
+//Spring Route
 //
-//         var tempArray = [];
-//         var precipArray = [];
-//         var windArray = [];
-//
-//
-//         //Loop over the sql array
-//         for (var i = 0; i < data.length; i++) {
-//             tempArray.push(data[i].HOURLYDRYBULBTEMPF);
-//             precipArray.push(data[i].HOURLYPrecip);
-//             windArray.push(data[i].HOURLYWindSpeed);
-//         }
-//
-//         //
-//         //Temps
-//         //
-//         console.log("=======");
-//         console.log("Temps");
-//         console.log("=======");
-//
-//         console.log("mean: %s", stats.mean(tempArray));
-//         console.log("median: %s", stats.median(tempArray));
-//         console.log("mode: %s", stats.mode(tempArray));
-//         console.log("standard deviation: %s", stats.stdev(tempArray));
-//
-//         //
-//         //Rains
-//         //
-//         console.log("=======");
-//         console.log("Rains");
-//         console.log("=======");
-//         console.log("mean: %s", stats.mean(precipArray));
-//         console.log("median: %s", stats.median(precipArray));
-//         console.log("mode: %s", stats.mode(precipArray));
-//         console.log("standard deviation: %s", stats.stdev(precipArray));
-//
-//         //
-//         //Winds
-//         //
-//         console.log("=======");
-//         console.log("Winds");
-//         console.log("=======");
-//         console.log("mean: %s", stats.mean(windArray));
-//         console.log("median: %s", stats.median(windArray));
-//         console.log("mode: %s", stats.mode(windArray));
-//         console.log("standard deviation: %s", stats.stdev(windArray));
-//     })
-// });
+router.get('/austin/spring', function(request, response) {
+    models.spring.findAll({
+        attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
+    }).then(function(data) {
+        // console.log(response.json(data));
+        // return response.json(data);
 
-// router.post("/city", function(request, response){
-// 	var cityName = request.body.city;
-// 	console.log(cityName);
-// 	var condition = cityName.toUpperCase();
-//
-// 	console.log("condition:", condition);
-//
-// 	response.render("index", {
-// 		City: condition,
-// 	})
-// })
+        var tempArray = [];
+        var precipArray = [];
+        var windArray = [];
 
 
+        //Loop over the sql array
+        for (var i = 0; i < data.length; i++) {
+            tempArray.push(data[i].HOURLYDRYBULBTEMPF);
+            precipArray.push(data[i].HOURLYPrecip);
+            windArray.push(data[i].HOURLYWindSpeed);
+        }
+
+        //
+        //Temps
+        //
+        console.log("=======");
+        console.log("Temps");
+        console.log("=======");
+
+        console.log("mean: %s", stats.mean(tempArray));
+        console.log("median: %s", stats.median(tempArray));
+        console.log("mode: %s", stats.mode(tempArray));
+        console.log("standard deviation: %s", stats.stdev(tempArray));
+
+        //
+        //Rains
+        //
+        console.log("=======");
+        console.log("Rains");
+        console.log("=======");
+        console.log("mean: %s", stats.mean(precipArray));
+        console.log("median: %s", stats.median(precipArray));
+        console.log("mode: %s", stats.mode(precipArray));
+        console.log("standard deviation: %s", stats.stdev(precipArray));
+
+        //
+        //Winds
+        //
+        console.log("=======");
+        console.log("Winds");
+        console.log("=======");
+        console.log("mean: %s", stats.mean(windArray));
+        console.log("median: %s", stats.median(windArray));
+        console.log("mode: %s", stats.mode(windArray));
+        console.log("standard deviation: %s", stats.stdev(windArray));
+    })
+});
+
+
+//
+//summer Route
+//
+router.get('/austin/summer', function(request, response) {
+    models.summer.findAll({
+        attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
+    }).then(function(data) {
+        // console.log(response.json(data));
+        // return response.json(data);
+
+        var tempArray = [];
+        var precipArray = [];
+        var windArray = [];
+
+
+        //Loop over the sql array
+        for (var i = 0; i < data.length; i++) {
+            tempArray.push(data[i].HOURLYDRYBULBTEMPF);
+            precipArray.push(data[i].HOURLYPrecip);
+            windArray.push(data[i].HOURLYWindSpeed);
+        }
+
+        //
+        //Temps
+        //
+        console.log("=======");
+        console.log("Temps");
+        console.log("=======");
+
+        console.log("mean: %s", stats.mean(tempArray));
+        console.log("median: %s", stats.median(tempArray));
+        console.log("mode: %s", stats.mode(tempArray));
+        console.log("standard deviation: %s", stats.stdev(tempArray));
+
+        //
+        //Rains
+        //
+        console.log("=======");
+        console.log("Rains");
+        console.log("=======");
+        console.log("mean: %s", stats.mean(precipArray));
+        console.log("median: %s", stats.median(precipArray));
+        console.log("mode: %s", stats.mode(precipArray));
+        console.log("standard deviation: %s", stats.stdev(precipArray));
+
+        //
+        //Winds
+        //
+        console.log("=======");
+        console.log("Winds");
+        console.log("=======");
+        console.log("mean: %s", stats.mean(windArray));
+        console.log("median: %s", stats.median(windArray));
+        console.log("mode: %s", stats.mode(windArray));
+        console.log("standard deviation: %s", stats.stdev(windArray));
+    })
+});
+
+router.post("/city", function(request, response){
+	var cityName = request.body.city;
+	console.log(cityName);
+	var condition = cityName.toUpperCase();
+
+	console.log("condition:", condition);
+
+	response.render("index", {
+		City: condition,
+	})
+})
 
 
 
 
 
-// router.get('/:austin', function(request, response) {
-// console.log("help");
-//     models.Campmabrymin.findAll({
-//         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
-//     }).then(function(data){
-//         // var datajson = json.parse(data);
-//         // response.render('index', {
-//         //     data: datajson
-//         // });
-//         var dataJson = json.parse(data);
-//         response.render('index', {
-//             data: dataJson
-//         });
 
-// 	});
-// });
 
-// router.get('/austin', function(request, response) {
-// console.log("help");
-//     models.Datweather.findAll({
-//         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
-//     }).then(function(data){
-//         // var datajson = json.parse(data);
-//         // response.render('index', {
-//         //     data: datajson
-//         // });
-//         var dataJson = json.parse(data);
-//         response.render('index', {
-//             data: dataJson
-//         });
-//
-// 	});
-// });
+router.get('/:austin', function(request, response) {
+console.log("help");
+    models.Campmabrymin.findAll({
+        attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
+    }).then(function(data){
+        // var datajson = json.parse(data);
+        // response.render('index', {
+        //     data: datajson
+        // });
+        var dataJson = json.parse(data);
+        response.render('index', {
+            data: dataJson
+        });
+
+	});
+});
+
+
+
+
 
 
 //
-// //
-// //fall Route
-// //
-// router.get('/austin/fall', function(request, response) {
-//     models.fall.findAll({
-//         attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
-//     }).then(function(data) {
-//         // console.log(response.json(data));
-//         // return response.json(data);
+//fall Route
 //
-//         var tempArray = [];
-//         var precipArray = [];
-//         var windArray = [];
+router.get('/austin/fall', function(request, response) {
+    models.fall.findAll({
+        attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
+    }).then(function(data) {
+        // console.log(response.json(data));
+        // return response.json(data);
+
+        var tempArray = [];
+        var precipArray = [];
+        var windArray = [];
+
+
+        //Loop over the sql array
+        for (var i = 0; i < data.length; i++) {
+            tempArray.push(data[i].HOURLYDRYBULBTEMPF);
+            precipArray.push(data[i].HOURLYPrecip);
+            windArray.push(data[i].HOURLYWindSpeed);
+        }
+
+        //
+        //Temps
+        //
+        console.log("=======");
+        console.log("Temps");
+        console.log("=======");
+
+        console.log("mean: %s", stats.mean(tempArray));
+        console.log("median: %s", stats.median(tempArray));
+        console.log("mode: %s", stats.mode(tempArray));
+        console.log("standard deviation: %s", stats.stdev(tempArray));
+
+        //
+        //Rains
+        //
+        console.log("=======");
+        console.log("Rains");
+        console.log("=======");
+        console.log("mean: %s", stats.mean(precipArray));
+        console.log("median: %s", stats.median(precipArray));
+        console.log("mode: %s", stats.mode(precipArray));
+        console.log("standard deviation: %s", stats.stdev(precipArray));
+
+        //
+        //Winds
+        //
+        console.log("=======");
+        console.log("Winds");
+        console.log("=======");
+        console.log("mean: %s", stats.mean(windArray));
+        console.log("median: %s", stats.median(windArray));
+        console.log("mode: %s", stats.mode(windArray));
+        console.log("standard deviation: %s", stats.stdev(windArray));
+    })
+});
+
+
 //
+//winter Route
 //
-//         //Loop over the sql array
-//         for (var i = 0; i < data.length; i++) {
-//             tempArray.push(data[i].HOURLYDRYBULBTEMPF);
-//             precipArray.push(data[i].HOURLYPrecip);
-//             windArray.push(data[i].HOURLYWindSpeed);
-//         }
+router.get('/austin/winter', function(request, response) {
+    models.winter.findAll({
+        attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
+    }).then(function(data) {
+        // console.log(response.json(data));
+        // return response.json(data);
+
+        var tempArray = [];
+        var precipArray = [];
+        var windArray = [];
+
+
+        //Loop over the sql array
+        for (var i = 0; i < data.length; i++) {
+            tempArray.push(data[i].HOURLYDRYBULBTEMPF);
+            precipArray.push(data[i].HOURLYPrecip);
+            windArray.push(data[i].HOURLYWindSpeed);
+        }
+
+        //
+        //Temps
+        //
+        console.log("=======");
+        console.log("Temps");
+        console.log("=======");
+
+        console.log("mean: %s", stats.mean(tempArray));
+        console.log("median: %s", stats.median(tempArray));
+        console.log("mode: %s", stats.mode(tempArray));
+        console.log("standard deviation: %s", stats.stdev(tempArray));
+
+        //
+        //Rains
+        //
+        console.log("=======");
+        console.log("Rains");
+        console.log("=======");
+        console.log("mean: %s", stats.mean(precipArray));
+        console.log("median: %s", stats.median(precipArray));
+        console.log("mode: %s", stats.mode(precipArray));
+        console.log("standard deviation: %s", stats.stdev(precipArray));
+
+        //
+        //Winds
+        //
+        console.log("=======");
+        console.log("Winds");
+        console.log("=======");
+        console.log("mean: %s", stats.mean(windArray));
+        console.log("median: %s", stats.median(windArray));
+        console.log("mode: %s", stats.mode(windArray));
+        console.log("standard deviation: %s", stats.stdev(windArray));
+    })
+});
+
+
 //
-//         //
-//         //Temps
-//         //
-//         console.log("=======");
-//         console.log("Temps");
-//         console.log("=======");
+//Spring Route
 //
-//         console.log("mean: %s", stats.mean(tempArray));
-//         console.log("median: %s", stats.median(tempArray));
-//         console.log("mode: %s", stats.mode(tempArray));
-//         console.log("standard deviation: %s", stats.stdev(tempArray));
-//
-//         //
-//         //Rains
-//         //
-//         console.log("=======");
-//         console.log("Rains");
-//         console.log("=======");
-//         console.log("mean: %s", stats.mean(precipArray));
-//         console.log("median: %s", stats.median(precipArray));
-//         console.log("mode: %s", stats.mode(precipArray));
-//         console.log("standard deviation: %s", stats.stdev(precipArray));
-//
-//         //
-//         //Winds
-//         //
-//         console.log("=======");
-//         console.log("Winds");
-//         console.log("=======");
-//         console.log("mean: %s", stats.mean(windArray));
-//         console.log("median: %s", stats.median(windArray));
-//         console.log("mode: %s", stats.mode(windArray));
-//         console.log("standard deviation: %s", stats.stdev(windArray));
-//     })
-// });
-//
-//
-// //
-// //winter Route
-// //
-// router.get('/austin/winter', function(request, response) {
-//     models.winter.findAll({
-//         attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
-//     }).then(function(data) {
-//         // console.log(response.json(data));
-//         // return response.json(data);
-//
-//         var tempArray = [];
-//         var precipArray = [];
-//         var windArray = [];
-//
-//
-//         //Loop over the sql array
-//         for (var i = 0; i < data.length; i++) {
-//             tempArray.push(data[i].HOURLYDRYBULBTEMPF);
-//             precipArray.push(data[i].HOURLYPrecip);
-//             windArray.push(data[i].HOURLYWindSpeed);
-//         }
-//
-//         //
-//         //Temps
-//         //
-//         console.log("=======");
-//         console.log("Temps");
-//         console.log("=======");
-//
-//         console.log("mean: %s", stats.mean(tempArray));
-//         console.log("median: %s", stats.median(tempArray));
-//         console.log("mode: %s", stats.mode(tempArray));
-//         console.log("standard deviation: %s", stats.stdev(tempArray));
-//
-//         //
-//         //Rains
-//         //
-//         console.log("=======");
-//         console.log("Rains");
-//         console.log("=======");
-//         console.log("mean: %s", stats.mean(precipArray));
-//         console.log("median: %s", stats.median(precipArray));
-//         console.log("mode: %s", stats.mode(precipArray));
-//         console.log("standard deviation: %s", stats.stdev(precipArray));
-//
-//         //
-//         //Winds
-//         //
-//         console.log("=======");
-//         console.log("Winds");
-//         console.log("=======");
-//         console.log("mean: %s", stats.mean(windArray));
-//         console.log("median: %s", stats.median(windArray));
-//         console.log("mode: %s", stats.mode(windArray));
-//         console.log("standard deviation: %s", stats.stdev(windArray));
-//     })
-// });
-//
-//
-// //
-// //Spring Route
-// //
-// router.get('/austin/spring', function(request, response) {
-//     models.spring.findAll({
-//         attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
-//     }).then(function(data) {
-//         // console.log(response.json(data));
-//         // return response.json(data);
-//
-//         var tempArray = [];
-//         var precipArray = [];
-//         var windArray = [];
-//
-//
-//         //Loop over the sql array
-//         for (var i = 0; i < data.length; i++) {
-//             tempArray.push(data[i].HOURLYDRYBULBTEMPF);
-//             precipArray.push(data[i].HOURLYPrecip);
-//             windArray.push(data[i].HOURLYWindSpeed);
-//         }
-//
-//         //
-//         //Temps
-//         //
-//         console.log("=======");
-//         console.log("Temps");
-//         console.log("=======");
-//
-//         console.log("mean: %s", stats.mean(tempArray));
-//         console.log("median: %s", stats.median(tempArray));
-//         console.log("mode: %s", stats.mode(tempArray));
-//         console.log("standard deviation: %s", stats.stdev(tempArray));
-//
-//         //
-//         //Rains
-//         //
-//         console.log("=======");
-//         console.log("Rains");
-//         console.log("=======");
-//         console.log("mean: %s", stats.mean(precipArray));
-//         console.log("median: %s", stats.median(precipArray));
-//         console.log("mode: %s", stats.mode(precipArray));
-//         console.log("standard deviation: %s", stats.stdev(precipArray));
-//
-//         //
-//         //Winds
-//         //
-//         console.log("=======");
-//         console.log("Winds");
-//         console.log("=======");
-//         console.log("mean: %s", stats.mean(windArray));
-//         console.log("median: %s", stats.median(windArray));
-//         console.log("mode: %s", stats.mode(windArray));
-//         console.log("standard deviation: %s", stats.stdev(windArray));
-//     })
-// });
+router.get('/austin/spring', function(request, response) {
+    models.spring.findAll({
+        attributes: ['HOURLYDRYBULBTEMPF', 'HOURLYPrecip','HOURLYWindSpeed' ]
+    }).then(function(data) {
+        // console.log(response.json(data));
+        // return response.json(data);
+
+        var tempArray = [];
+        var precipArray = [];
+        var windArray = [];
+
+
+        //Loop over the sql array
+        for (var i = 0; i < data.length; i++) {
+            tempArray.push(data[i].HOURLYDRYBULBTEMPF);
+            precipArray.push(data[i].HOURLYPrecip);
+            windArray.push(data[i].HOURLYWindSpeed);
+        }
+
+        //
+        //Temps
+        //
+        console.log("=======");
+        console.log("Temps");
+        console.log("=======");
+
+        console.log("mean: %s", stats.mean(tempArray));
+        console.log("median: %s", stats.median(tempArray));
+        console.log("mode: %s", stats.mode(tempArray));
+        console.log("standard deviation: %s", stats.stdev(tempArray));
+
+        //
+        //Rains
+        //
+        console.log("=======");
+        console.log("Rains");
+        console.log("=======");
+        console.log("mean: %s", stats.mean(precipArray));
+        console.log("median: %s", stats.median(precipArray));
+        console.log("mode: %s", stats.mode(precipArray));
+        console.log("standard deviation: %s", stats.stdev(precipArray));
+
+        //
+        //Winds
+        //
+        console.log("=======");
+        console.log("Winds");
+        console.log("=======");
+        console.log("mean: %s", stats.mean(windArray));
+        console.log("median: %s", stats.median(windArray));
+        console.log("mode: %s", stats.mode(windArray));
+        console.log("standard deviation: %s", stats.stdev(windArray));
+    })
+});
 
 
 module.exports = router;
