@@ -4,11 +4,15 @@ var models = require('../models');
 // var sequelizeConnection = models.sequelize;
 // sequelizeConnection.sync();
 
+// 	router.get("/", function(request, response){
+//  	response.redirect("/api");
+// });
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', {
-  	City: 'New York' ,
+  	City: 'NEW YORK',
   	springTemperature: "60 - 82",
   	springPercipitation: "Wet",
   	springHumidity: "10% - 20%",
@@ -39,22 +43,40 @@ router.get('/', function(req, res) {
 // 	})
 
 
-router.get('/austin', function(request, response) {
-console.log("help");
-    models.Campmabrymin.findAll({
-        attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
-    }).then(function(data){
-        // var datajson = json.parse(data);
-        // response.render('index', {
-        //     data: datajson
-        // });
-        var dataJson = json.parse(data);
-        response.render('index', {
-            data: dataJson
-        });
+router.post("/city", function(request, response){
+	var cityName = request.body.city;
+	console.log(cityName);
+	var condition = cityName.toUpperCase();
 
-	});
-});
+	console.log("condition:", condition);
+
+	response.render("index", {
+		City: condition,
+	})
+})
+
+
+
+
+
+
+
+// router.get('/:austin', function(request, response) {
+// console.log("help");
+//     models.Campmabrymin.findAll({
+//         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
+//     }).then(function(data){
+//         // var datajson = json.parse(data);
+//         // response.render('index', {
+//         //     data: datajson
+//         // });
+//         var dataJson = json.parse(data);
+//         response.render('index', {
+//             data: dataJson
+//         });
+
+// 	});
+// });
 
 
 
