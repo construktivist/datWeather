@@ -1,23 +1,15 @@
-var average = function (data) {
-    //
-    var tempArray  = [];
-    $.each(obj, function(key, value) {
+var queryArray = require('queryArray');
+var average = function(queryArray){
+    for (i = 0;
+
+
+
+    $.each(queryArray, function("HOURLYDRYBULBTEMPF", value) {
         console.log(key, value);
     });
+
+
 }module.exports = calculations;
 
 
-// for (var key in tempArray) {
-//     if (tempArray.hasOwnProperty(key)){
-//         console.log(key + " ->")
-//     }
-// }
-//
-//
-// }
-//
-//
-// for (var key in p) {
-//     if (p.hasOwnProperty(key)) {
-//         console.log(key + " -> " + p[key]);
-//     }
+

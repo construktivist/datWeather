@@ -1,3 +1,5 @@
+var queryArray = require('queryArray');
+
 /*  probability.js    12-25-2008    JavaScript
  Copyright (C)2008 Steven Whitney.
  Initially published by http://25yearsofprogramming.com.
@@ -123,3 +125,12 @@ var chart = AmCharts.makeChart( "chartdiv", {
     }
 
 } );
+
+
+
+
+
+
+
+
+module.exports

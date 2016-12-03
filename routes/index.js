@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+var stats = require("stats-lite");
+
 // var sequelizeConnection = models.sequelize;
 // sequelizeConnection.sync();
 
@@ -28,7 +30,7 @@ router.get('/', function(req, res) {
   	winterTemperature: "13 - 67",
   	winterPercipitation: "Dry",
   	winterHumidity: "0% - 2%",
-  	winterWind: "8 mph",
+  	winterWind: "8 mph"
 
 });
 });
@@ -57,22 +59,37 @@ router.get('/', function(req, res) {
 // });
 //
 
-
 router.get('/austin/spring', function(request, response) {
-    console.log("help");
     models.spring.findAll({
-        attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
+        attributes: ['HOURLYDRYBULBTEMPF']
     }).then(function(data){
-        // var datajson = json.parse(data);
-        // response.render('index', {
-        //     data: datajson
-        // });
-        var dataJson = json.parse(data);
-        response.render('index', {
-            data: dataJson
-        });
+        // console.log(response.json(data));
+        // return response.json(data);
+        //    calculate the standard deviation
+
+        var tempArray = [];
+        for (var i = 0; i < data.length; i++) {
+            tempArray.push(data[i].HOURLYDRYBULBTEMPF);
+        }
+
+        console.log("sum: %s", stats.sum(tempArray));
+        console.log("mean: %s", stats.mean(tempArray));
+        console.log("median: %s", stats.median(tempArray));
+        console.log("mode: %s", stats.mode(tempArray));
+        console.log("standard deviation: %s", stats.stdev(tempArray));
 
     });
+
+
+
+
+
+
+
+
+
 });
 
 module.exports = router;
+
+
