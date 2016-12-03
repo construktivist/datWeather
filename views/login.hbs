@@ -3,6 +3,7 @@
 		<form role="form">
 			<fieldset>
 				<h2>Please Sign In</h2>
+        <h3 class="login-error">{{error}}</h3>
 				<hr class="colorgraph">
 				<div class="form-group">
               <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
@@ -21,7 +22,7 @@
               <input type="submit" class="btn btn-lg btn-success btn-block" id="login-signin" value="Sign In"  onsubmit="return false">
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<a href="" id="login-register" class="btn btn-lg btn-primary btn-block">Register</a>
+						<a href="/api/register" id="login-register" class="btn btn-lg btn-primary btn-block">Register</a>
 					</div>
 				</div>
 			</fieldset>
