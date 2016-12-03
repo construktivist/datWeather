@@ -48,6 +48,10 @@ console.log("help");
         // response.render('index', {
         //     data: datajson
         // });
+        var dataJson = json.parse(data);
+        response.render('index', {
+            data: dataJson
+        });
 
 	});
 });

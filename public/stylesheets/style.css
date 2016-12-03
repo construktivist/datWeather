@@ -42,3 +42,9 @@ h1{
 .well{
 	background-color: white;
 }
+
+#chartdiv {
+	width       : 100%;
+	height      : 500px;
+	font-size   : 11px;
+}
