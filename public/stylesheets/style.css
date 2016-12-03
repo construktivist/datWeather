@@ -12,6 +12,14 @@ h1{
 	font-weight: bold;
 }
 
+h2{
+	color: white;
+}
+
+h3{
+	color: white;
+}
+
 .container {
 	width: 1450px;
   background-image: url("http://weknowyourdreams.com/images/cloud/cloud-06.jpg");
