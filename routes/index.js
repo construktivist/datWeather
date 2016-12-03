@@ -41,7 +41,7 @@ var models = require('../models');
 
 router.get('/austin', function(request, response) {
 console.log("help");
-    models.Campmabrymin.findAll({
+    models.Datweather.findAll({
         attributes: ['DATE', 'HOURLYDRYBULBTEMPF']
     }).then(function(data){
         var dataJson = json.parse(data);
